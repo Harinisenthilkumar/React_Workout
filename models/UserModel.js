@@ -1,0 +1,28 @@
+const { type } = require("express/lib/response");
+const mongoose = require("mongoose");
+const UserSchema = new mongoose.Schema(
+  {
+    username: { type: String, required: true },
+    email: { type: String, required: true },
+    Content: { type: String },
+    password: { type: String, required: true },
+    contact: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"contacts"
+      }
+
+    ],
+    address:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"addresses"
+    }
+  },
+  { timestamps: true }
+);
+// creating a model
+const UserModel = mongoose.model("Users", UserSchema);
+
+module.exports = UserModel;
+
+
