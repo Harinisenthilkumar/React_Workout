@@ -55,6 +55,7 @@ app.use(router);
 app.use(require("./routes/ProductRoutes"));
 app.use(require("./routes/TagRoute"));
 app.use(require("./routes/PostRoute"));
+app.use(require("./routes/AuthRoute"));
 
 
 app.listen(port, () => {

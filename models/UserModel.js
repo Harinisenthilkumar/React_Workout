@@ -4,19 +4,18 @@ const UserSchema = new mongoose.Schema(
   {
     username: { type: String, required: true },
     email: { type: String, required: true },
-    Content: { type: String },
+    contact: { type: String },
     password: { type: String, required: true },
-    contact: [
+    contacts: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"contacts"
-      }
-
+        ref: "contacts",
+      },
     ],
-    address:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:"addresses"
-    }
+    address: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "addresses",
+    },
   },
   { timestamps: true }
 );
@@ -24,5 +23,3 @@ const UserSchema = new mongoose.Schema(
 const UserModel = mongoose.model("Users", UserSchema);
 
 module.exports = UserModel;
-
-
